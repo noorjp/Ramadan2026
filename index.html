@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>রমজান ক্যালেন্ডার ২০২৬ - সেন্দাই, জাপান</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Hind Siliguri', sans-serif; background-color: #fcf9f2; }
+        .islamic-pattern {
+            background-image: url('https://www.transparenttextures.com/patterns/islamic-art.png');
+            opacity: 0.1;
+        }
+        @media print {
+            .no-print { display: none !important; }
+            .print-grid { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 10px !important; }
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="min-h-screen p-4 md:p-8">
+        <div class="max-w-6xl mx-auto">
+            <!-- Header -->
+            <header class="relative bg-[#064e3b] text-white rounded-[2.5rem] p-8 md:p-12 mb-10 overflow-hidden shadow-2xl border-b-[8px] border-[#d4af37]">
+                <div class="absolute inset-0 islamic-pattern pointer-events-none"></div>
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="mb-4 bg-[#d4af37] p-4 rounded-full shadow-lg text-[#064e3b]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                    </div>
+                    <p class="text-[#d4af37] font-bold tracking-[0.3em] text-sm uppercase mb-2">Ramadan 1447 Hijri</p>
+                    <h1 class="text-4xl md:text-6xl font-black mb-6">রমজান ক্যালেন্ডার ২০২৬</h1>
+                    
+                    <div class="flex flex-wrap justify-center gap-4 no-print">
+                        <div class="flex items-center gap-2 bg-white/10 px-5 py-2 rounded-full border border-white/20 backdrop-blur-sm">
+                            <span>📍 সেন্দাই, জাপান</span>
+                        </div>
+                    </div>
+
+                    <button onclick="window.print()" class="mt-8 no-print bg-[#d4af37] text-[#064e3b] font-black px-8 py-3 rounded-full hover:bg-white transition-all shadow-xl flex items-center gap-2">
+                        প্রিন্ট বা পিডিএফ সেভ করুন
+                    </button>
+                </div>
+            </header>
+
+            <!-- Calendar Grid -->
+            <div id="calendar-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12 print-grid">
+                <!-- Data will be injected here by JS -->
+            </div>
+
+            <!-- Duas -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20 no-print">
+                <div class="bg-white rounded-[2rem] p-8 border-l-[12px] border-[#064e3b] shadow-xl">
+                    <h3 class="text-2xl font-black text-slate-800 mb-4 italic">সেহরির নিয়ত</h3>
+                    <p class="text-2xl text-right mb-4 text-[#064e3b] leading-loose" dir="rtl">نَوَيْتُ اَنْ اَصُوْمَ غَدًا مِّনْ شَهْرِ رَمَضَانَ الْمُبَارَكِ فَرْضًا لَكَ يَا اَللهُ فَتَقَبَّلْ مِنِّى اِنَّكَ اَنْتَ السَّمِيْعُ الْعَلِيْمُ</p>
+                    <p class="text-slate-500 text-sm">"আমি কাল পবিত্র রমজানের রোজা রাখার নিয়ত করলাম..."</p>
+                </div>
+                <div class="bg-white rounded-[2rem] p-8 border-l-[12px] border-[#d4af37] shadow-xl">
+                    <h3 class="text-2xl font-black text-slate-800 mb-4 italic">ইফতারের দোয়া</h3>
+                    <p class="text-2xl text-right mb-4 text-amber-700 leading-loose" dir="rtl">اَللَّهُمَّ لَكَ صُمْتُ وَعَلَى رِزْقِكَ اَفْطَرْتُ</p>
+                    <p class="text-slate-500 text-sm">"হে আল্লাহ! আমি তোমারই জন্য রোজা রেখেছি এবং তোমার দেওয়া রিযিক দ্বারাই ইফতার করছি।"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const ramadanData = [
+            { day: 1, date: "১৯ ফেব্রুয়ারি", weekday: "বৃহস্পতিবার", sehri: "০৪:৫৪ AM", iftar: "০৫:১৯ PM" },
+            { day: 2, date: "২০ ফেব্রুয়ারি", weekday: "শুক্রবার", sehri: "০৪:৫৩ AM", iftar: "০৫:২০ PM" },
+            { day: 3, date: "২১ ফেব্রুয়ারি", weekday: "শনিবার", sehri: "০৪:৫২ AM", iftar: "০৫:২১ PM" },
+            { day: 4, date: "২২ ফেব্রুয়ারি", weekday: "রবিবার", sehri: "০৪:৫১ AM", iftar: "০৫:২২ PM" },
+            { day: 5, date: "২৩ ফেব্রুয়ারি", weekday: "সোমবার", sehri: "০৪:৫০ AM", iftar: "০৫:২৩ PM" },
+            { day: 6, date: "২৪ ফেব্রুয়ারি", weekday: "মঙ্গলবার", sehri: "০৪:৪৯ AM", iftar: "০৫:২৪ PM" },
+            { day: 7, date: "২৫ ফেব্রুয়ারি", weekday: "বুধবার", sehri: "০৪:৪৮ AM", iftar: "০৫:২৫ PM" },
+            { day: 8, date: "২৬ ফেব্রুয়ারি", weekday: "বৃহস্পতিবার", sehri: "০৪:৪৭ AM", iftar: "০৫:২৬ PM" },
+            { day: 9, date: "২৭ ফেব্রুয়ারি", weekday: "শুক্রবার", sehri: "০৪:৪৬ AM", iftar: "০৫:২৭ PM" },
+            { day: 10, date: "২৮ ফেব্রুয়ারি", weekday: "শনিবার", sehri: "০৪:৪৫ AM", iftar: "০৫:২৮ PM" },
+            { day: 11, date: "০১ মার্চ", weekday: "রবিবার", sehri: "০৪:৪৩ AM", iftar: "০৫:২৯ PM" },
+            { day: 12, date: "০২ মার্চ", weekday: "সোমবার", sehri: "০৪:৪২ AM", iftar: "০৫:৩০ PM" },
+            { day: 13, date: "০৩ মার্চ", weekday: "মঙ্গলবার", sehri: "০৪:৪১ AM", iftar: "০৫:৩১ PM" },
+            { day: 14, date: "০৪ মার্চ", weekday: "বুধবার", sehri: "০৪:৩৯ AM", iftar: "০৫:৩২ PM" },
+            { day: 15, date: "০৫ মার্চ", weekday: "বৃহস্পতিবার", sehri: "০৪:৩৮ AM", iftar: "০৫:৩৩ PM" },
+            { day: 16, date: "০৬ মার্চ", weekday: "শুক্রবার", sehri: "০৪:৩৬ AM", iftar: "০৫:৩৪ PM" },
+            { day: 17, date: "০৭ মার্চ", weekday: "শনিবার", sehri: "০৪:৩৫ AM", iftar: "০৫:৩৫ PM" },
+            { day: 18, date: "০৮ মার্চ", weekday: "রবিবার", sehri: "০৪:৩৩ AM", iftar: "০৫:৩৬ PM" },
+            { day: 19, date: "০৯ মার্চ", weekday: "সোমবার", sehri: "০৪:৩২ AM", iftar: "০৫:৩৭ PM" },
+            { day: 20, date: "১০ মার্চ", weekday: "মঙ্গলবার", sehri: "০৪:৩০ AM", iftar: "০৫:৩৮ PM" },
+            { day: 21, date: "১১ মার্চ", weekday: "বুধবার", sehri: "০৪:২৯ AM", iftar: "০৫:৩৯ PM" },
+            { day: 22, date: "১২ মার্চ", weekday: "বৃহস্পতিবার", sehri: "০৪:২৭ AM", iftar: "০৫:৪০ PM" },
+            { day: 23, date: "১৩ মার্চ", weekday: "শুক্রবার", sehri: "০৪:২৬ AM", iftar: "০৫:৪১ PM" },
+            { day: 24, date: "১৪ মার্চ", weekday: "শনিবার", sehri: "০৪:২৪ AM", iftar: "০৫:৪২ PM" },
+            { day: 25, date: "১৫ মার্চ", weekday: "রবিবার", sehri: "০৪:২৩ AM", iftar: "০৫:৪৩ PM" },
+            { day: 26, date: "১৬ মার্চ", weekday: "সোমবার", sehri: "০৪:২১ AM", iftar: "০৫:৪৪ PM" },
+            { day: 27, date: "১৭ মার্চ", weekday: "মঙ্গলবার", sehri: "০৪:১৯ AM", iftar: "০৫:৪৫ PM" },
+            { day: 28, date: "১৮ মার্চ", weekday: "বুধবার", sehri: "০৪:১৮ AM", iftar: "০৫:৪৬ PM" },
+            { day: 29, date: "১৯ মার্চ", weekday: "বৃহস্পতিবার", sehri: "০৪:১৬ AM", iftar: "০৫:৪৭ PM" },
+            { day: 30, date: "২০ মার্চ", weekday: "শুক্রবার", sehri: "০৪:১৫ AM", iftar: "০৫:৪৮ PM" }
+        ];
+
+        const grid = document.getElementById('calendar-grid');
+        ramadanData.forEach(item => {
+            const card = document.createElement('div');
+            card.className = `relative bg-white rounded-3xl p-6 border-t-4 border-[#d4af37] shadow-lg transition-all hover:-translate-y-1`;
+            card.innerHTML = `
+                <div class="absolute -top-3 left-6 px-4 py-1 bg-[#064e3b] text-[#d4af37] rounded-full text-xs font-black shadow-md">রমজান ${item.day}</div>
+                <div class="mb-4 mt-2">
+                    <h3 class="text-xl font-black text-slate-800">${item.date}</h3>
+                    <p class="text-slate-400 font-bold text-xs uppercase">${item.weekday}</p>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex justify-between bg-indigo-50 p-3 rounded-xl border border-indigo-100">
+                        <span class="text-xs font-bold text-indigo-900">সেহরি শেষ</span>
+                        <span class="font-black text-indigo-700">${item.sehri}</span>
+                    </div>
+                    <div class="flex justify-between bg-amber-50 p-3 rounded-xl border border-amber-100">
+                        <span class="text-xs font-bold text-amber-900">ইফতার শুরু</span>
+                        <span class="font-black text-amber-700">${item.iftar}</span>
+                    </div>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    </script>
+</body>
+</html>
+
