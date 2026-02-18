@@ -3,62 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>রমজান ক্যালেন্ডার ২০২৬ - সেন্দাই, জাপান</title>
+    <title>Ramadan 2026 - Noor Hossain</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Hind Siliguri', sans-serif; background-color: #fcf9f2; }
-        .islamic-pattern {
-            background-image: url('https://www.transparenttextures.com/patterns/islamic-art.png');
-            opacity: 0.1;
+        :root {
+            --primary-jp: #064e3b;
+            --gold: #b8860b;
+            --dark-text: #1a1a1a;
         }
-        @media print {
-            .no-print { display: none !important; }
-            .print-grid { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 10px !important; }
+        body { 
+            font-family: 'Hind Siliguri', 'Noto Sans JP', sans-serif; 
+            background-color: #f4f4f2;
+            color: var(--dark-text);
         }
+        .jp-banner {
+            background: linear-gradient(135deg, #042f24 0%, #064e3b 100%);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 6px solid #d4af37;
+        }
+        .islamic-grid {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l2.5 27.5L60 30 32.5 32.5 30 60 27.5 32.5 0 30 27.5 27.5z' fill='%23064e3b' fill-opacity='0.03'/%3E%3C/svg%3E");
+        }
+        .ramadan-card {
+            background: white;
+            border-radius: 28px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+        .active-day {
+            border-color: #d4af37;
+            box-shadow: 0 20px 40px rgba(184, 134, 11, 0.15);
+            transform: translateY(-5px);
+        }
+        .completed-day {
+            opacity: 0.35;
+            filter: grayscale(1);
+        }
+        .time-highlight {
+            font-size: 1.8rem;
+            line-height: 1;
+            font-weight: 900;
+            color: #064e3b;
+        }
+        .notice-glow {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            animation: pulse-border 2s infinite;
+        }
+        @keyframes pulse-border {
+            0% { border-color: rgba(212, 175, 55, 0.5); }
+            50% { border-color: rgba(212, 175, 55, 1); }
+            100% { border-color: rgba(212, 175, 55, 0.5); }
+        }
+        .jap-font { font-family: 'Noto Sans JP', sans-serif; }
     </style>
 </head>
-<body>
-    <div id="app" class="min-h-screen p-4 md:p-8">
-        <div class="max-w-6xl mx-auto">
-            <!-- Header -->
-            <header class="relative bg-[#064e3b] text-white rounded-[2.5rem] p-8 md:p-12 mb-10 overflow-hidden shadow-2xl border-b-[8px] border-[#d4af37]">
-                <div class="absolute inset-0 islamic-pattern pointer-events-none"></div>
-                <div class="relative z-10 flex flex-col items-center text-center">
-                    <div class="mb-4 bg-[#d4af37] p-4 rounded-full shadow-lg text-[#064e3b]">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-                    </div>
-                    <p class="text-[#d4af37] font-bold tracking-[0.3em] text-sm uppercase mb-2">Ramadan 1447 Hijri</p>
-                    <h1 class="text-4xl md:text-6xl font-black mb-6">রমজান ক্যালেন্ডার ২০২৬</h1>
-                    
-                    <div class="flex flex-wrap justify-center gap-4 no-print">
-                        <div class="flex items-center gap-2 bg-white/10 px-5 py-2 rounded-full border border-white/20 backdrop-blur-sm">
-                            <span>📍 সেন্দাই, জাপান</span>
-                        </div>
-                    </div>
+<body class="islamic-grid">
 
-                    <button onclick="window.print()" class="mt-8 no-print bg-[#d4af37] text-[#064e3b] font-black px-8 py-3 rounded-full hover:bg-white transition-all shadow-xl flex items-center gap-2">
-                        প্রিন্ট বা পিডিএফ সেভ করুন
-                    </button>
+    <div class="min-h-screen pb-12">
+        <!-- Header -->
+        <div class="jp-banner mb-8 text-white pt-16 pb-24 px-6">
+            <div class="max-w-6xl mx-auto flex flex-col items-center relative z-10 text-center">
+                <div class="mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
                 </div>
-            </header>
+                <h2 class="jap-font text-xs tracking-[0.5em] text-yellow-500 font-bold mb-3 uppercase">RAMADAN KAREEM 2026 • ラマダン</h2>
+                <h1 class="text-5xl md:text-8xl font-black mb-8 drop-shadow-lg">রমজান ক্যালেন্ডার</h1>
+                
+                <div class="flex flex-wrap justify-center gap-4">
+                    <div class="bg-black/40 backdrop-blur-xl px-8 py-3 rounded-2xl border border-white/10 flex items-center gap-4">
+                        <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                        <span id="current-location-text" class="text-sm font-bold text-gray-100">Sendai, Japan</span>
+                    </div>
+                    <div id="live-clock" class="bg-[#d4af37] text-emerald-950 px-8 py-3 rounded-2xl font-black text-xl shadow-2xl min-w-[140px]">
+                        00:00:00
+                    </div>
+                </div>
+            </div>
+            <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
+                <svg class="relative block w-full h-[70px]" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#f4f4f2"></path>
+                </svg>
+            </div>
+        </div>
 
-            <!-- Calendar Grid -->
-            <div id="calendar-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12 print-grid">
-                <!-- Data will be injected here by JS -->
+        <!-- Smart Notice -->
+        <div id="smart-notice-container" class="max-w-4xl mx-auto px-6 mb-12 hidden">
+            <div class="bg-white border-2 border-[#d4af37] rounded-[2.5rem] p-8 shadow-xl notice-glow relative overflow-hidden">
+                <div class="flex flex-col md:flex-row items-center gap-8 relative z-10">
+                    <div id="notice-icon-box" class="w-20 h-20 bg-emerald-100 rounded-3xl flex items-center justify-center text-emerald-700 text-3xl">
+                        🌙
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <div class="flex items-center justify-center md:justify-start gap-3 mb-2">
+                            <span id="notice-tag" class="bg-emerald-700 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Notice</span>
+                            <span id="notice-timer" class="text-[#b8860b] font-black text-sm">--:-- বাকি</span>
+                        </div>
+                        <h3 id="notice-title" class="text-2xl font-black text-gray-800 mb-2">সেহরি বা ইফতার</h3>
+                        <p id="notice-dua" class="text-gray-600 font-bold leading-relaxed italic text-sm md:text-base"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="max-w-7xl mx-auto px-6">
+            <div id="calendar-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
+        </div>
+
+        <!-- Footer -->
+        <div class="max-w-5xl mx-auto mt-20 px-6">
+            <div class="bg-amber-50 border-l-8 border-amber-500 p-8 rounded-3xl mb-12 flex items-start gap-5">
+                <div class="bg-amber-100 p-3 rounded-2xl text-amber-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </div>
+                <p class="text-sm font-bold text-amber-800 leading-relaxed">
+                    সতর্কতা: সময়ের ক্ষেত্রে ১-২ মিনিটের পার্থক্য হতে পারে। স্থানীয় মসজিদের আযানের সাথে মিলিয়ে নেবেন।
+                </p>
             </div>
 
-            <!-- Duas -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20 no-print">
-                <div class="bg-white rounded-[2rem] p-8 border-l-[12px] border-[#064e3b] shadow-xl">
-                    <h3 class="text-2xl font-black text-slate-800 mb-4 italic">সেহরির নিয়ত</h3>
-                    <p class="text-2xl text-right mb-4 text-[#064e3b] leading-loose" dir="rtl">نَوَيْتُ اَنْ اَصُوْمَ غَدًا مِّনْ شَهْرِ رَمَضَانَ الْمُبَارَكِ فَرْضًا لَكَ يَا اَللهُ فَتَقَبَّلْ مِنِّى اِنَّكَ اَنْتَ السَّمِيْعُ الْعَلِيْمُ</p>
-                    <p class="text-slate-500 text-sm">"আমি কাল পবিত্র রমজানের রোজা রাখার নিয়ত করলাম..."</p>
+            <div class="bg-[#042f24] text-white rounded-[3rem] p-10 flex flex-col md:flex-row justify-between items-center gap-10 shadow-2xl border-b-8 border-[#d4af37]">
+                <div>
+                    <p class="text-[10px] font-black text-yellow-500 uppercase tracking-[0.5em] mb-4">Developed By</p>
+                    <h3 class="text-4xl md:text-5xl font-black mb-2">মোঃ নুর হোসাইন</h3>
+                    <p class="text-sm font-bold text-white/40 italic uppercase">Sendai, Japan • 2026</p>
                 </div>
-                <div class="bg-white rounded-[2rem] p-8 border-l-[12px] border-[#d4af37] shadow-xl">
-                    <h3 class="text-2xl font-black text-slate-800 mb-4 italic">ইফতারের দোয়া</h3>
-                    <p class="text-2xl text-right mb-4 text-amber-700 leading-loose" dir="rtl">اَللَّهُمَّ لَكَ صُمْتُ وَعَلَى رِزْقِكَ اَفْطَرْتُ</p>
-                    <p class="text-slate-500 text-sm">"হে আল্লাহ! আমি তোমারই জন্য রোজা রেখেছি এবং তোমার দেওয়া রিযিক দ্বারাই ইফতার করছি।"</p>
+                <div class="space-y-4">
+                    <div class="bg-white/5 px-6 py-3 rounded-2xl border border-white/10 text-xs font-bold">東洋国際文化アカデミー (TICA)</div>
                 </div>
             </div>
         </div>
@@ -66,61 +141,144 @@
 
     <script>
         const ramadanData = [
-            { day: 1, date: "১৯ ফেব্রুয়ারি", weekday: "বৃহস্পতিবার", sehri: "০৪:৫৪ AM", iftar: "০৫:১৯ PM" },
-            { day: 2, date: "২০ ফেব্রুয়ারি", weekday: "শুক্রবার", sehri: "০৪:৫৩ AM", iftar: "০৫:২০ PM" },
-            { day: 3, date: "২১ ফেব্রুয়ারি", weekday: "শনিবার", sehri: "০৪:৫২ AM", iftar: "০৫:২১ PM" },
-            { day: 4, date: "২২ ফেব্রুয়ারি", weekday: "রবিবার", sehri: "০৪:৫১ AM", iftar: "০৫:২২ PM" },
-            { day: 5, date: "২৩ ফেব্রুয়ারি", weekday: "সোমবার", sehri: "০৪:৫০ AM", iftar: "০৫:২৩ PM" },
-            { day: 6, date: "২৪ ফেব্রুয়ারি", weekday: "মঙ্গলবার", sehri: "০৪:৪৯ AM", iftar: "০৫:২৪ PM" },
-            { day: 7, date: "২৫ ফেব্রুয়ারি", weekday: "বুধবার", sehri: "০৪:৪৮ AM", iftar: "০৫:২৫ PM" },
-            { day: 8, date: "২৬ ফেব্রুয়ারি", weekday: "বৃহস্পতিবার", sehri: "০৪:৪৭ AM", iftar: "০৫:২৬ PM" },
-            { day: 9, date: "২৭ ফেব্রুয়ারি", weekday: "শুক্রবার", sehri: "০৪:৪৬ AM", iftar: "০৫:২৭ PM" },
-            { day: 10, date: "২৮ ফেব্রুয়ারি", weekday: "শনিবার", sehri: "০৪:৪৫ AM", iftar: "০৫:২৮ PM" },
-            { day: 11, date: "০১ মার্চ", weekday: "রবিবার", sehri: "০৪:৪৩ AM", iftar: "০৫:২৯ PM" },
-            { day: 12, date: "০২ মার্চ", weekday: "সোমবার", sehri: "০৪:৪২ AM", iftar: "০৫:৩০ PM" },
-            { day: 13, date: "০৩ মার্চ", weekday: "মঙ্গলবার", sehri: "০৪:৪১ AM", iftar: "০৫:৩১ PM" },
-            { day: 14, date: "০৪ মার্চ", weekday: "বুধবার", sehri: "০৪:৩৯ AM", iftar: "০৫:৩২ PM" },
-            { day: 15, date: "০৫ মার্চ", weekday: "বৃহস্পতিবার", sehri: "০৪:৩৮ AM", iftar: "০৫:৩৩ PM" },
-            { day: 16, date: "০৬ মার্চ", weekday: "শুক্রবার", sehri: "০৪:৩৬ AM", iftar: "০৫:৩৪ PM" },
-            { day: 17, date: "০৭ মার্চ", weekday: "শনিবার", sehri: "০৪:৩৫ AM", iftar: "০৫:৩৫ PM" },
-            { day: 18, date: "০৮ মার্চ", weekday: "রবিবার", sehri: "০৪:৩৩ AM", iftar: "০৫:৩৬ PM" },
-            { day: 19, date: "০৯ মার্চ", weekday: "সোমবার", sehri: "০৪:৩২ AM", iftar: "০৫:৩৭ PM" },
-            { day: 20, date: "১০ মার্চ", weekday: "মঙ্গলবার", sehri: "০৪:৩০ AM", iftar: "০৫:৩৮ PM" },
-            { day: 21, date: "১১ মার্চ", weekday: "বুধবার", sehri: "০৪:২৯ AM", iftar: "০৫:৩৯ PM" },
-            { day: 22, date: "১২ মার্চ", weekday: "বৃহস্পতিবার", sehri: "০৪:২৭ AM", iftar: "০৫:৪০ PM" },
-            { day: 23, date: "১৩ মার্চ", weekday: "শুক্রবার", sehri: "০৪:২৬ AM", iftar: "০৫:৪১ PM" },
-            { day: 24, date: "১৪ মার্চ", weekday: "শনিবার", sehri: "০৪:২৪ AM", iftar: "০৫:৪২ PM" },
-            { day: 25, date: "১৫ মার্চ", weekday: "রবিবার", sehri: "০৪:২৩ AM", iftar: "০৫:৪৩ PM" },
-            { day: 26, date: "১৬ মার্চ", weekday: "সোমবার", sehri: "০৪:২১ AM", iftar: "০৫:৪৪ PM" },
-            { day: 27, date: "১৭ মার্চ", weekday: "মঙ্গলবার", sehri: "০৪:১৯ AM", iftar: "০৫:৪৫ PM" },
-            { day: 28, date: "১৮ মার্চ", weekday: "বুধবার", sehri: "০৪:১৮ AM", iftar: "০৫:৪৬ PM" },
-            { day: 29, date: "১৯ মার্চ", weekday: "বৃহস্পতিবার", sehri: "০৪:১৬ AM", iftar: "০৫:৪৭ PM" },
-            { day: 30, date: "২০ মার্চ", weekday: "শুক্রবার", sehri: "০৪:১৫ AM", iftar: "০৫:৪৮ PM" }
+            { day: 1, date: "2026-02-19", displayDate: "১৯ ফেব্রুয়ারি", weekday: "বৃহস্পতিবার", sehri: "04:54", iftar: "17:19", fajr: "05:04", dhuhr: "11:55", asr: "14:53", isha: "18:38" },
+            { day: 2, date: "2026-02-20", displayDate: "২০ ফেব্রুয়ারি", weekday: "শুক্রবার", sehri: "04:53", iftar: "17:20", fajr: "05:03", dhuhr: "11:55", asr: "14:54", isha: "18:39" },
+            { day: 3, date: "2026-02-21", displayDate: "২১ ফেব্রুয়ারি", weekday: "শনিবার", sehri: "04:52", iftar: "17:21", fajr: "05:02", dhuhr: "11:55", asr: "14:55", isha: "18:40" },
+            { day: 4, date: "2026-02-22", displayDate: "২২ ফেব্রুয়ারি", weekday: "রবিবার", sehri: "04:51", iftar: "17:22", fajr: "05:01", dhuhr: "11:55", asr: "14:56", isha: "18:41" },
+            { day: 5, date: "2026-02-23", displayDate: "২৩ ফেব্রুয়ারি", weekday: "সোমবার", sehri: "04:50", iftar: "17:23", fajr: "05:00", dhuhr: "11:55", asr: "14:57", isha: "18:42" },
+            { day: 6, date: "2026-02-24", displayDate: "২৪ ফেব্রুয়ারি", weekday: "মঙ্গলবার", sehri: "04:49", iftar: "17:24", fajr: "04:59", dhuhr: "11:54", asr: "14:58", isha: "18:43" },
+            { day: 7, date: "2026-02-25", displayDate: "২৫ ফেব্রুয়ারি", weekday: "বুধবার", sehri: "04:48", iftar: "17:25", fajr: "04:58", dhuhr: "11:54", asr: "14:59", isha: "18:44" },
+            { day: 8, date: "2026-02-26", displayDate: "২৬ ফেব্রুয়ারি", weekday: "বৃহস্পতিবার", sehri: "04:47", iftar: "17:26", fajr: "04:57", dhuhr: "11:54", asr: "15:00", isha: "18:45" },
+            { day: 9, date: "2026-02-27", displayDate: "২৭ ফেব্রুয়ারি", weekday: "শুক্রবার", sehri: "04:46", iftar: "17:27", fajr: "04:56", dhuhr: "11:54", asr: "15:01", isha: "18:46" },
+            { day: 10, date: "2026-02-28", displayDate: "২৮ ফেব্রুয়ারি", weekday: "শনিবার", sehri: "04:45", iftar: "17:28", fajr: "04:55", dhuhr: "11:54", asr: "15:02", isha: "18:47" },
+            { day: 11, date: "2026-03-01", displayDate: "০১ মার্চ", weekday: "রবিবার", sehri: "04:43", iftar: "17:29", fajr: "04:53", dhuhr: "11:54", asr: "15:03", isha: "18:48" },
+            { day: 12, date: "2026-03-02", displayDate: "০২ মার্চ", weekday: "সোমবার", sehri: "04:42", iftar: "17:30", fajr: "04:52", dhuhr: "11:53", asr: "15:04", isha: "18:49" },
+            { day: 13, date: "2026-03-03", displayDate: "০৩ মার্চ", weekday: "মঙ্গলবার", sehri: "04:41", iftar: "17:31", fajr: "04:51", dhuhr: "11:53", asr: "15:05", isha: "18:50" },
+            { day: 14, date: "2026-03-04", displayDate: "০৪ মার্চ", weekday: "বুধবার", sehri: "04:39", iftar: "17:32", fajr: "04:49", dhuhr: "11:53", asr: "15:06", isha: "18:51" },
+            { day: 15, date: "2026-03-05", displayDate: "০৫ মার্চ", weekday: "বৃহস্পতিবার", sehri: "04:38", iftar: "17:33", fajr: "04:48", dhuhr: "11:53", asr: "15:07", isha: "18:52" },
+            { day: 16, date: "2026-03-06", displayDate: "০৬ মার্চ", weekday: "শুক্রবার", sehri: "04:36", iftar: "17:34", fajr: "04:46", dhuhr: "11:53", asr: "15:08", isha: "18:53" },
+            { day: 17, date: "2026-03-07", displayDate: "০৭ মার্চ", weekday: "শনিবার", sehri: "04:35", iftar: "17:35", fajr: "04:45", dhuhr: "11:52", asr: "15:09", isha: "18:54" },
+            { day: 18, date: "2026-03-08", displayDate: "০৮ মার্চ", weekday: "রবিবার", sehri: "04:33", iftar: "17:36", fajr: "04:43", dhuhr: "11:52", asr: "15:10", isha: "18:55" },
+            { day: 19, date: "2026-03-09", displayDate: "০৯ মার্চ", weekday: "সোমবার", sehri: "04:32", iftar: "17:37", fajr: "04:42", dhuhr: "11:52", asr: "15:11", isha: "18:56" },
+            { day: 20, date: "2026-03-10", displayDate: "১০ মার্চ", weekday: "মঙ্গলবার", sehri: "04:30", iftar: "17:38", fajr: "04:40", dhuhr: "11:52", asr: "15:12", isha: "18:57" },
+            { day: 21, date: "2026-03-11", displayDate: "১১ মার্চ", weekday: "বুধবার", sehri: "04:29", iftar: "17:39", fajr: "04:39", dhuhr: "11:51", asr: "15:13", isha: "18:58" },
+            { day: 22, date: "2026-03-12", displayDate: "১২ মার্চ", weekday: "বৃহস্পতিবার", sehri: "04:27", iftar: "17:40", fajr: "04:37", dhuhr: "11:51", asr: "15:13", isha: "18:59" },
+            { day: 23, date: "2026-03-13", displayDate: "১৩ মার্চ", weekday: "শুক্রবার", sehri: "04:26", iftar: "17:41", fajr: "04:36", dhuhr: "11:51", asr: "15:14", isha: "19:00" },
+            { day: 24, date: "2026-03-14", displayDate: "১৪ মার্চ", weekday: "শনিবার", sehri: "04:24", iftar: "17:42", fajr: "04:34", dhuhr: "11:51", asr: "15:15", isha: "19:01" },
+            { day: 25, date: "2026-03-15", displayDate: "১৫ মার্চ", weekday: "রবিবার", sehri: "04:23", iftar: "17:43", fajr: "04:33", dhuhr: "11:50", asr: "15:16", isha: "19:02" },
+            { day: 26, date: "2026-03-16", displayDate: "১৬ মার্চ", weekday: "সোমবার", sehri: "04:21", iftar: "17:44", fajr: "04:31", dhuhr: "11:50", asr: "15:17", isha: "19:03" },
+            { day: 27, date: "2026-03-17", displayDate: "১৭ মার্চ", weekday: "মঙ্গলবার", sehri: "04:19", iftar: "17:45", fajr: "04:29", dhuhr: "11:50", asr: "15:18", isha: "19:04" },
+            { day: 28, date: "2026-03-18", displayDate: "১৮ মার্চ", weekday: "বুধবার", sehri: "04:18", iftar: "17:46", fajr: "04:28", dhuhr: "11:50", asr: "15:18", isha: "19:05" },
+            { day: 29, date: "2026-03-19", displayDate: "১৯ মার্চ", weekday: "বৃহস্পতিবার", sehri: "04:16", iftar: "17:47", fajr: "04:26", dhuhr: "11:49", asr: "15:19", isha: "19:06" },
+            { day: 30, date: "2026-03-20", displayDate: "২০ মার্চ", weekday: "শুক্রবার", sehri: "04:15", iftar: "17:48", fajr: "04:25", dhuhr: "11:49", asr: "15:20", isha: "19:07" }
         ];
 
-        const grid = document.getElementById('calendar-grid');
-        ramadanData.forEach(item => {
-            const card = document.createElement('div');
-            card.className = `relative bg-white rounded-3xl p-6 border-t-4 border-[#d4af37] shadow-lg transition-all hover:-translate-y-1`;
-            card.innerHTML = `
-                <div class="absolute -top-3 left-6 px-4 py-1 bg-[#064e3b] text-[#d4af37] rounded-full text-xs font-black shadow-md">রমজান ${item.day}</div>
-                <div class="mb-4 mt-2">
-                    <h3 class="text-xl font-black text-slate-800">${item.date}</h3>
-                    <p class="text-slate-400 font-bold text-xs uppercase">${item.weekday}</p>
-                </div>
-                <div class="space-y-2">
-                    <div class="flex justify-between bg-indigo-50 p-3 rounded-xl border border-indigo-100">
-                        <span class="text-xs font-bold text-indigo-900">সেহরি শেষ</span>
-                        <span class="font-black text-indigo-700">${item.sehri}</span>
+        function format12(time) {
+            let [h, m] = time.split(':').map(Number);
+            let p = h >= 12 ? 'PM' : 'AM';
+            h = h % 12 || 12;
+            return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')} ${p}`;
+        }
+
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('live-clock').innerText = now.toLocaleTimeString('en-GB');
+            checkNotice(now);
+        }
+
+        function checkNotice(now) {
+            const todayStr = now.toISOString().split('T')[0];
+            const data = ramadanData.find(d => d.date === todayStr);
+            const container = document.getElementById('smart-notice-container');
+
+            if (!data) {
+                container.classList.add('hidden');
+                return;
+            }
+
+            const [sH, sM] = data.sehri.split(':').map(Number);
+            const [iH, iM] = data.iftar.split(':').map(Number);
+            const sehriTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), sH, sM);
+            const iftarTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), iH, iM);
+
+            let diffSehri = (sehriTime - now) / 60000;
+            let diffIftar = (iftarTime - now) / 60000;
+
+            if (diffSehri > 0 && diffSehri <= 60) {
+                showNotice("Sehri Alert", `সেহরি শেষ হতে ${Math.ceil(diffSehri)} মিনিট বাকি`, "নিয়ত: নাওয়াইতু আন আসুমা গাদাম মিন শাহরি রামাদানাল মুবারকি ফারদাল্লাকা ইয়া আল্লাহু ফাতাকাব্বাল মিন্নি ইন্নাকা আনতাস সামিউল আলিম।", "🥣");
+            } else if (diffIftar > 0 && diffIftar <= 60) {
+                showNotice("Iftar Alert", `ইফতার শুরু হতে ${Math.ceil(diffIftar)} মিনিট বাকি`, "দোয়া: আল্লাহুম্মা লাকা সুমতু ওয়া আলা রিযকিকা আফতারতু।", "🏮");
+            } else {
+                container.classList.add('hidden');
+            }
+        }
+
+        function showNotice(tag, title, dua, icon) {
+            const container = document.getElementById('smart-notice-container');
+            container.classList.remove('hidden');
+            document.getElementById('notice-tag').innerText = tag;
+            document.getElementById('notice-title').innerText = title;
+            document.getElementById('notice-dua').innerText = dua;
+            document.getElementById('notice-icon-box').innerText = icon;
+        }
+
+        function renderGrid() {
+            const grid = document.getElementById('calendar-grid');
+            const now = new Date();
+            const todayStr = now.toISOString().split('T')[0];
+
+            ramadanData.forEach(item => {
+                const isToday = todayStr === item.date;
+                const isPassed = new Date(item.date) < new Date(todayStr);
+
+                const card = document.createElement('div');
+                card.className = `ramadan-card p-6 flex flex-col ${isToday ? 'active-day' : ''} ${isPassed ? 'completed-day' : ''}`;
+                
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <span class="text-[10px] font-black uppercase text-emerald-800 mb-1 block tracking-widest">Day ${item.day}</span>
+                            <h3 class="text-2xl font-black text-gray-800">${item.displayDate}</h3>
+                            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">${item.weekday}</p>
+                        </div>
+                        <div class="text-xl">${isToday ? '📍' : isPassed ? '✅' : '🌙'}</div>
                     </div>
-                    <div class="flex justify-between bg-amber-50 p-3 rounded-xl border border-amber-100">
-                        <span class="text-xs font-bold text-amber-900">ইফতার শুরু</span>
-                        <span class="font-black text-amber-700">${item.iftar}</span>
+
+                    <div class="grid grid-cols-2 gap-3 mb-6">
+                        <div class="p-3 bg-emerald-50 rounded-2xl border border-emerald-100 text-center">
+                            <p class="text-[8px] font-black text-emerald-800 uppercase mb-1">সেহরি শেষ</p>
+                            <p class="time-highlight text-xl">${item.sehri}</p>
+                        </div>
+                        <div class="p-3 bg-amber-50 rounded-2xl border border-amber-100 text-center">
+                            <p class="text-[8px] font-black text-amber-800 uppercase mb-1">ইফতার শুরু</p>
+                            <p class="time-highlight text-amber-700 text-xl">${item.iftar}</p>
+                        </div>
                     </div>
-                </div>
-            `;
-            grid.appendChild(card);
-        });
+
+                    <div class="mt-auto grid grid-cols-5 gap-1 border-t border-gray-100 pt-4">
+                        ${[
+                            {n: 'ফজর', t: item.fajr}, 
+                            {n: 'জোহর', t: item.dhuhr}, 
+                            {n: 'আসর', t: item.asr}, 
+                            {n: 'মাগরিব', t: item.iftar}, 
+                            {n: 'এশা', t: item.isha}
+                        ].map(p => `
+                            <div class="text-center">
+                                <p class="text-[7px] font-bold text-gray-400 uppercase">${p.n}</p>
+                                <p class="text-[9px] font-black text-emerald-900">${p.t}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        window.onload = () => {
+            renderGrid();
+            updateClock();
+            setInterval(updateClock, 1000);
+        };
     </script>
 </body>
 </html>
